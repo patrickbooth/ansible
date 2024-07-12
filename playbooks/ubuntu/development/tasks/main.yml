@@ -1,0 +1,31 @@
+- name: 'Add Docker GPG apt key'
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: 'Add Docker Repository'
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: 'Update apt and install docker-ce'
+  apt:
+    name: docker-ce
+    state: latest
+
+- name: 'Ensure docker group exists'
+  ansible.builtin.group:
+    name: docker
+    state: present
+
+- name: 'Add patrick to docker group'
+  user:
+    name: patrick
+    groups: docker
+    append: yes
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
