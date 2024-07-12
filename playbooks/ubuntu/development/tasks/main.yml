@@ -24,8 +24,14 @@
     groups: docker
     append: yes
 
-- name: Start Docker service
+- name: 'Start Docker service'
   service:
     name: docker
     state: started
     enabled: yes
+
+- name: 'Get kubectl binary'
+  command: curl -LO https://dl.k8s.io/release/v1.28.11/bin/linux/amd64/kubectl
+
+- name: 'Install kubectl'
+  command: sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
