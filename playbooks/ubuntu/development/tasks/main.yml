@@ -1,3 +1,12 @@
+- name: 'Get aws-cli'
+  command: curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
+  
+- name: 'Unzip aws-cli'
+  command: unzip awscliv2.zip
+
+- name: 'Install aws-cli'
+  command: ./aws/install
+
 - name: 'Add Docker GPG apt key'
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg

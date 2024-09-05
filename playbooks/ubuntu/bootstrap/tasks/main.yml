@@ -13,4 +13,7 @@
   apt:
     pkg:
     - curl
+    - gpg
+    - wget
     - vim
+

@@ -1,1 +1,13 @@
 ansible-playbook ubuntu.yml -i inventory.ini -u patrick --key-file ~/.ssh/id_patrick -K
+
+TO-DO
++++++
+
+General Ubuntu Setup
+* Install linux brew
+* Install nvim via brew
+* clone astro-nvim repo and run setup commands
+
+Engineering Setup
+* Install k9s
+* clone astro-nvim repo and run setup commands
